@@ -8,6 +8,8 @@ def get_game_information():
 
     print(r.json())
 
+    return r.json()
+
 
 get_game_information()
 
