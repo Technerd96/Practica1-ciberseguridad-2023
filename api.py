@@ -1,6 +1,8 @@
 import requests
 from flask import Flask, request, Response
 from query import get_company_information
+from EpicGamesApi import get_game_information
+
 from query_wallapop import get_wallapop
 import json
 import os
@@ -42,6 +44,10 @@ def get_product_and_price_average():
 
     return Response(json.dumps(get_wallapop(query)), status=200, mimetype='application/json')
 
+
+@app.route('/api/epicgames')
+def get_game():
+    return Response(json.dumps(get_game_information()), status=200, mimetype='application/json')
 
 
 if __name__ == '__main__':
